@@ -1,6 +1,6 @@
 /*
  * 작성자 : 김진관
- * 마지막 작성일 : 2020-06-10
+ * 마지막 작성일 : 2020-06-12
  * 개요 : 볼링 게임
  *      2명의 플레이어가 10프레임동안 번갈아가며 게임을 진행하고 과정과 결과를 보여주는 프로그램
  *      쓰러뜨리는 볼링핀의 개수는 등급에 따라 달라진다.
@@ -8,6 +8,7 @@
  * 	- v0.1 : 시작. 플레이어 설정 완료
  *  - v0.2 : 점수판 출력 방식, 볼링핀 출력 양식 설정, 넘어뜨린 핀 개수 기록
  *  - v0.3 : 10프레임까지 점수 계산 및 점수판 출력 완료
+ *  - v0.4 : 플레이어 등급별로 실력 차등 구현, 인터페이스 개선
  */
 
 package main;
@@ -35,7 +36,7 @@ public class Bowling {
 			
 			try {
 				System.out.print(">> ");
-				int level = scanner.nextInt();
+				int level = Integer.parseInt(scanner.nextLine());
 				
 				if (level == 0) {
 					System.out.println("프로그램을 종료합니다.");
@@ -78,8 +79,9 @@ public class Bowling {
 			
 			if (frame == 10) {
 				// 10프레임의 1차 시도
-				System.out.print("1차 시도 ");
-				scanner.next();
+				System.out.println("1차 시도 ");
+				System.out.print("Press Any Key...");
+				scanner.nextLine();
 				int droppedPinNum = curPlayer.throwBall(remainPinNum);
 				remainPinNum -= droppedPinNum;
 				pins.drop(droppedPinNum);
@@ -101,8 +103,9 @@ public class Bowling {
 					remainPinNum = pins.getRemainNum();
 					
 					// 10프레임의 2차 시도
-					System.out.print("2차 시도 ");
-					scanner.next();
+					System.out.println("2차 시도 ");
+					System.out.print("Press Any Key...");
+					scanner.nextLine();
 					droppedPinNum = curPlayer.throwBall(remainPinNum);
 					remainPinNum -= droppedPinNum;
 					pins.drop(droppedPinNum);
@@ -124,8 +127,9 @@ public class Bowling {
 						remainPinNum = pins.getRemainNum();
 						
 						// 10프레임의 3차 시도
-						System.out.print("3차 시도 ");
-						scanner.next();
+						System.out.println("3차 시도 ");
+						System.out.print("Press Any Key...");
+						scanner.nextLine();
 						droppedPinNum = curPlayer.throwBall(remainPinNum);
 						remainPinNum -= droppedPinNum;
 						pins.drop(droppedPinNum);
@@ -145,8 +149,9 @@ public class Bowling {
 						remainPinNum = pins.getRemainNum();
 						
 						// 10프레임의 3차 시도
-						System.out.print("3차 시도 ");
-						scanner.next();
+						System.out.println("3차 시도 ");
+						System.out.print("Press Any Key...");
+						scanner.nextLine();
 						droppedPinNum = curPlayer.throwBall(remainPinNum);
 						remainPinNum -= droppedPinNum;
 						pins.drop(droppedPinNum);
@@ -167,8 +172,9 @@ public class Bowling {
 					remainPinNum = pins.getRemainNum();
 					
 					// 10프레임의 2차 시도
-					System.out.print("2차 시도 ");
-					scanner.next();
+					System.out.println("2차 시도 ");
+					System.out.print("Press Any Key...");
+					scanner.nextLine();
 					droppedPinNum = curPlayer.throwBall(remainPinNum);
 					remainPinNum -= droppedPinNum;
 					pins.drop(droppedPinNum);
@@ -190,8 +196,9 @@ public class Bowling {
 						remainPinNum = pins.getRemainNum();
 						
 						// 10프레임의 3차 시도
-						System.out.print("3차 시도 ");
-						scanner.next();
+						System.out.println("3차 시도 ");
+						System.out.print("Press Any Key...");
+						scanner.nextLine();
 						droppedPinNum = curPlayer.throwBall(remainPinNum);
 						remainPinNum -= droppedPinNum;
 						pins.drop(droppedPinNum);
@@ -203,8 +210,9 @@ public class Bowling {
 				}
 			} else { // 10프레임이 아닐때
 				// 볼링공 던지기: 1차 시도
-				System.out.print("1차 시도 ");
-				scanner.next();
+				System.out.println("1차 시도 ");
+				System.out.print("Press Any Key...");
+				scanner.nextLine();
 				int droppedPinNum = curPlayer.throwBall(remainPinNum);
 				remainPinNum -= droppedPinNum;
 				pins.drop(droppedPinNum);
@@ -223,8 +231,9 @@ public class Bowling {
 					// 볼링핀 상태 출력
 					pins.show();
 					// 2차 시도
-					System.out.print("2차시도 ");
-					scanner.next();
+					System.out.println("2차시도 ");
+					System.out.print("Press Any Key...");
+					scanner.nextLine();
 					// 던지기
 					droppedPinNum = curPlayer.throwBall(remainPinNum);
 					remainPinNum -= droppedPinNum;

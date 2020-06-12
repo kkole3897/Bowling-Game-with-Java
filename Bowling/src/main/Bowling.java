@@ -9,6 +9,7 @@
  *  - v0.2 : 점수판 출력 방식, 볼링핀 출력 양식 설정, 넘어뜨린 핀 개수 기록
  *  - v0.3 : 10프레임까지 점수 계산 및 점수판 출력 완료
  *  - v0.4 : 플레이어 등급별로 실력 차등 구현, 인터페이스 개선
+ *  - v0.5 : 승자 출력
  */
 
 package main;
@@ -260,6 +261,7 @@ public class Bowling {
 			// 게임 종료
 			if (frame > 10) {
 				gameBoard.show();
+				gameBoard.printWinner();
 				System.out.println("게임을 종료합니다.");
 				break;
 			}

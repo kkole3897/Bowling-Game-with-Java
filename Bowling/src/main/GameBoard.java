@@ -73,6 +73,16 @@ public class GameBoard {
 		return sum;
 	}
 	
+	public void printWinner() {
+		if (sumScoreTo(0, 9) > sumScoreTo(1, 9)) {
+			System.out.println("플레이어 1 Win!");
+		} else if (sumScoreTo(0, 9) < sumScoreTo(1, 9)) {
+			System.out.println("플레이어 2 Win!");
+		} else {
+			System.out.println("Draw.");
+		}
+	}
+	
 	public void show() {
 		System.out.println("=====================================================================");
 		System.out.print("      ");

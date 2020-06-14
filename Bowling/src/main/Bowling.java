@@ -1,6 +1,6 @@
 /*
  * 작성자 : 김진관
- * 마지막 작성일 : 2020-06-12
+ * 마지막 작성일 : 2020-06-14
  * 개요 : 볼링 게임
  *      2명의 플레이어가 10프레임동안 번갈아가며 게임을 진행하고 과정과 결과를 보여주는 프로그램
  *      쓰러뜨리는 볼링핀의 개수는 등급에 따라 달라진다.
@@ -10,6 +10,7 @@
  *  - v0.3 : 10프레임까지 점수 계산 및 점수판 출력 완료
  *  - v0.4 : 플레이어 등급별로 실력 차등 구현, 인터페이스 개선
  *  - v0.5 : 승자 출력
+ *  - v1.0 : 플레이어 등급 입력 예외처리 개선. 게임 완성.
  */
 
 package main;
@@ -42,7 +43,7 @@ public class Bowling {
 				if (level == 0) {
 					System.out.println("프로그램을 종료합니다.");
 					return;
-				} else if (level > 3) {
+				} else if (level < 0 || level > 3) {
 					System.out.println("범위가 잘못됐습니다.");
 					continue;
 				}
@@ -57,7 +58,7 @@ public class Bowling {
 				playerId++;
 			} catch (Exception e) {
 				System.out.println("잘못된 입력입니다.");
-				scanner.nextLine();
+				continue;
 			}
 		} // 플레이어 설정 완료
 		
